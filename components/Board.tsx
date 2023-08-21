@@ -5,12 +5,17 @@ import { get } from "http"
 import { useEffect } from "react"
 import { DragDropContext, Droppable } from "react-beautiful-dnd"
 function Board() {
-  const getBoard = useBoardStore((state) => state.getBoard)
+  const [board, getBoard] = useBoardStore((state) => [
+    state.board,
+    state.getBoard,
+  ])
 
   useEffect(() => {
     getBoard()
-    //getBoard
   }, [getBoard])
+
+  console.log(board)
+
   return (
     <h1>Hello</h1>
 
